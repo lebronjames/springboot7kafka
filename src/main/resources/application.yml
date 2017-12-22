@@ -1,0 +1,26 @@
+
+application:
+  hello: hello Kevin Durant111
+
+
+spring:
+  kafka:
+    bootstrap-servers:
+       - 10.5.2.243:9098
+    template:
+      default-topic: my-replicated-topic
+    listener:
+      concurrency: 3
+    consumer:
+      group-id: myGroup
+      key-deserializer:
+        org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer:
+        org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      batch-size: 1000
+      key-serializer:
+        org.apache.kafka.common.serialization.StringSerializer
+      value-serializer:
+        org.apache.kafka.common.serialization.StringSerializer
+
